@@ -15,12 +15,6 @@ pub const A3_I: A3 = [
 ];
 
 impl LL<A3> for L3 {
-    fn apply(&mut self, algs: &[A3], index: usize) {
-        for e in self.iter_mut() {
-            *e = algs[index][*e]; // wrong?
-        }
-    }
-
     fn is_solved(&self) -> bool {
         *self == L3_SOLVED
     }
