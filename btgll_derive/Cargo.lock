@@ -3,13 +3,6 @@
 version = 3
 
 [[package]]
-name = "btgll"
-version = "0.1.0"
-dependencies = [
- "btgll_derive",
-]
-
-[[package]]
 name = "btgll_derive"
 version = "0.1.0"
 dependencies = [
