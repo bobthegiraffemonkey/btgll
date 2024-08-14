@@ -7,8 +7,8 @@ use syn::DeriveInput;
 #[proc_macro_derive(LL)]
 pub fn ll_macro_derive(input: TokenStream) -> TokenStream {
     let ast = syn::parse(input).unwrap();
-    // panic!("{}", impl_ll_macro(&ast).to_string())
-    impl_ll_macro(&ast)
+    panic!("{}", impl_ll_macro(&ast).to_string())
+    // impl_ll_macro(&ast)
 }
 
 fn impl_ll_macro(ast: &DeriveInput) -> TokenStream {

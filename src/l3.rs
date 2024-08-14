@@ -10,9 +10,38 @@ use btgll_derive::LL;
 const CUBELL_SIZE: usize = 6; // (edges - 1) + (corners - 1)
 const CUBELLALG_SIZE: usize = 20; // edge_stickers + corner_stickers
 
-#[derive(LL, PartialEq)]
-pub struct CubeLL([usize; CUBELL_SIZE]);
+#[derive(PartialEq)]
+pub struct CubeLL(pub [usize; CUBELL_SIZE]);
 
+impl std::ops::Deref for CubeLL {
+    type Target = [usize; CUBELL_SIZE];
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::ops::DerefMut for CubeLL {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
+}
+
+pub struct CubeLLAlg([usize; CUBELLALG_SIZE]); const CUBELL_SOLVED : CubeLL =
+           {
+               let mut array = [0; CUBELL_SIZE]; let mut index = 0; while index <
+               CUBELL_SIZE { array [index] = index; index += 1; } CubeLL(array)
+           }; impl LL for CubeLL
+           {
+               type Alg = CubeLLAlg; fn
+               apply(& mut self, algs : & [Self :: Alg], index : usize)
+               { for ref mut e in **self { * e = algs [index] [*e]; } } fn is_solved(& self) ->
+               bool { * self == CUBELL_SOLVED }
+           } impl std :: ops :: Index < usize > for CubeLLAlg
+           {
+               type Output = usize; fn index(& self, index : usize) -> & Self :: Output
+               { & self.0 [index] }
+           }
 // impl IntoIterator for CubeLL {
 //     type Item = usize;
 
