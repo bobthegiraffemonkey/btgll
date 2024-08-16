@@ -1,27 +1,27 @@
-// //            0  1  2
-// //            7     3
-// //            6  5  4
-// //
-// // 19 18 17  16 15 14  13 12 11  10  9  8
-// // 27    26  25    24  23    22  21    20
-// // 39 38 37  36 35 34  33 32 31  30 29 28
-// //
-// //           40 41 42
-// //           47    43
-// //           46 45 44
+//            0  1  2
+//            7     3
+//            6  5  4
+//
+// 19 18 17  16 15 14  13 12 11  10  9  8
+// 27    26  25    24  23    22  21    20
+// 39 38 37  36 35 34  33 32 31  30 29 28
+//
+//           40 41 42
+//           47    43
+//           46 45 44
 
-// use crate::traits::Puzzle;
+use crate::traits::Puzzle;
+use btgll_derive::Puzzle;
 
-// type CubeInner = [usize; 18]; // (edges - 1) + (corners - 1)
-// type CubeTurnInner = [usize; 48]; // edge_stickers + corner_stickers
+const CUBE_SIZE: usize = 18; // (edges - 1) + (corners - 1)
+const CUBE_TURN_SIZE: usize = 48; // edge_stickers + corner_stickers
 
-// // #[derive(LL)]
-// pub struct Cube([usize; 18]);
-// pub struct CubeTurn([usize; 48]);
+#[derive(Puzzle)]
+pub struct Cube([usize; CUBE_SIZE]);
 
-// pub const C3_SOLVED: Cube = Cube([
-//     0, 1, 2, 3, 4, 5, 6, 7, 20, 21, 24, 25, 40, 41, 42, 43, 44, 45,
-// ]);
+pub const C3_SOLVED: Cube = Cube([
+    0, 1, 2, 3, 4, 5, 6, 7, 20, 21, 24, 25, 40, 41, 42, 43, 44, 45,
+]);
 
 // #[derive(Clone, Copy)]
 // pub enum CubeMove {

@@ -2,7 +2,11 @@
 // use crate::l3::{CubeAlg, CubeLL};
 // use crate::traits::LL;
 
-type Soln = Vec<usize>;
+pub enum Soln {
+    One(usize),
+    Two(usize, usize)
+}
+pub type Solns = Vec<Soln>;
 
 // TODO: only does one step, for one case.
 // pub fn solve_case(case: &CubeLL, algs: &[CubeAlg]) -> Soln {
@@ -18,12 +22,6 @@ type Soln = Vec<usize>;
 //     soln
 // }
 
-// pub fn print_soln(soln: Soln) {
-//     println!(
-//         "{:?}",
-//         soln.iter().map(|ii| ALGNAMES[*ii]).collect::<String>()
-//     );
-// }
 
 // #[cfg(test)]
 // mod test {

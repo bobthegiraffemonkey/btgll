@@ -1,5 +1,3 @@
-pub mod a3;
-pub mod l3;
-pub mod p3;
+pub mod cube;
 pub mod solve;
 pub mod traits;

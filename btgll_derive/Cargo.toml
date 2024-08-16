@@ -9,4 +9,5 @@ proc-macro = true
 [dependencies]
 syn = "*"
 quote = "*"
+# prettyplease = "*"
 proc-macro2 = "*"
